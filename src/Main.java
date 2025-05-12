@@ -39,6 +39,8 @@ public class Main {
         } catch (IOException e) {
             System.err.println("Erreur lors de la création du fichier");
             e.printStackTrace();
+        } finally {
+            scanner.close();
         }
     }
 
@@ -46,7 +48,7 @@ public class Main {
         Path path = Paths.get("notes.txt");
         try {
             List<String> contenuFichier = Files.readAllLines(path);
-            
+
             System.out.println("*********** DEBUT DE LECTURE **************");
             for (String ligne : contenuFichier) {
                 System.out.println(ligne);
